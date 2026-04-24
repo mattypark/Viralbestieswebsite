@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${playfair.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${playfair.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         <SmoothScroll />
         {children}
       </body>

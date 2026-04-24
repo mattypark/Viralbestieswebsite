@@ -6,15 +6,15 @@ const TYPEFORM_ID = "";
 export default function WaitlistForm() {
   if (!TYPEFORM_ID) {
     return (
-      <div className="w-full rounded-xl border-2 border-dashed border-gray-300 bg-white px-6 py-10 text-center">
-        <p className="text-gray-800 font-medium">Typeform goes here.</p>
-        <p className="text-sm text-gray-500 mt-2">
+      <div className="w-full rounded-xl border-2 border-dashed border-pink-brand/40 bg-pink-950/20 px-6 py-10 text-center">
+        <p className="text-white font-medium">Typeform goes here.</p>
+        <p className="text-sm text-neutral-400 mt-2">
           Open{" "}
-          <code className="bg-gray-100 rounded px-1.5 py-0.5">
+          <code className="bg-black/60 text-pink-200 rounded px-1.5 py-0.5">
             components/WaitlistForm.tsx
           </code>{" "}
           and set{" "}
-          <code className="bg-gray-100 rounded px-1.5 py-0.5">TYPEFORM_ID</code>.
+          <code className="bg-black/60 text-pink-200 rounded px-1.5 py-0.5">TYPEFORM_ID</code>.
         </p>
       </div>
     );
@@ -23,7 +23,7 @@ export default function WaitlistForm() {
   const src = `https://form.typeform.com/to/${TYPEFORM_ID}`;
 
   return (
-    <div className="w-full rounded-xl overflow-hidden border border-gray-200 bg-white">
+    <div className="w-full rounded-xl overflow-hidden border border-pink-brand/30 bg-black">
       <iframe
         src={src}
         title="Join the waitlist"

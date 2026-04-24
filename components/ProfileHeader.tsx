@@ -60,7 +60,7 @@ function TikTokIcon({ size = 24 }: { size?: number }) {
 export default function ProfileHeader() {
   return (
     <div className="flex flex-col items-center gap-6">
-      <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-300">
+      <div className="w-32 h-32 rounded-full overflow-hidden bg-neutral-800 ring-2 ring-pink-500/40 shadow-[0_0_30px_rgba(236,72,153,0.3)]">
         {/* Placeholder: replace /public/profile.svg with a real profile.jpg */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -71,17 +71,17 @@ export default function ProfileHeader() {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex items-center gap-5 text-gray-500">
-        <Link href="#" aria-label="Email" className="hover:text-gray-900 transition-colors">
+      <div className="flex items-center gap-5 text-neutral-400">
+        <Link href="#" aria-label="Email" className="hover:text-pink-400 transition-colors">
           <Mail size={24} />
         </Link>
-        <Link href="#" aria-label="Instagram" className="hover:text-gray-900 transition-colors">
+        <Link href="#" aria-label="Instagram" className="hover:text-pink-400 transition-colors">
           <InstagramIcon size={24} />
         </Link>
-        <Link href="#" aria-label="YouTube" className="hover:text-gray-900 transition-colors">
+        <Link href="#" aria-label="YouTube" className="hover:text-pink-400 transition-colors">
           <YoutubeIcon size={24} />
         </Link>
-        <Link href="#" aria-label="TikTok" className="hover:text-gray-900 transition-colors">
+        <Link href="#" aria-label="TikTok" className="hover:text-pink-400 transition-colors">
           <TikTokIcon size={22} />
         </Link>
       </div>

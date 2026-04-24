@@ -1,19 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f5f5;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --pink: #ec4899;
+  --pink-bright: #f472b6;
+  --pink-deep: #be185d;
+  --pink-dark: #831843;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-pink-brand: var(--pink);
+  --color-pink-bright: var(--pink-bright);
+  --color-pink-deep: var(--pink-deep);
+  --color-pink-dark: var(--pink-dark);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--pink);
+  color: #000;
+}
+
+/* --- Lenis smooth scroll required styles --- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* --- tech-y animations --- */
+
+@keyframes bar-grow {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes line-draw {
+  0% { stroke-dashoffset: 300; }
+  60%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes feed-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+@keyframes number-tick {
+  0%, 100% { opacity: 0; transform: translateY(6px); }
+  15%, 85% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.2), 0 0 40px rgba(236, 72, 153, 0.08); }
+  50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.4), 0 0 60px rgba(236, 72, 153, 0.18); }
+}
+
+.tech-card-glow {
+  animation: card-glow 3.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-card-glow,
+  [class*="animate-"] {
+    animation: none !important;
+  }
 }

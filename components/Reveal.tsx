@@ -37,7 +37,7 @@ export default function Reveal({
           }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.01, rootMargin: "0px 0px 120px 0px" },
     );
 
     io.observe(el);
@@ -46,12 +46,15 @@ export default function Reveal({
 
   const Tag = as;
 
+  // Compress incoming delays so reveals feel snappy on scroll.
+  const compressedDelay = Math.round(delay * 0.35);
+
   return (
     <Tag
       ref={ref as React.RefObject<HTMLDivElement>}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      style={{ transitionDelay: `${compressedDelay}ms` }}
+      className={`transition-all duration-300 ease-out will-change-transform ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
       } ${className}`}
     >
       {children}

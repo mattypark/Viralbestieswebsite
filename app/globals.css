@@ -93,6 +93,16 @@ html.lenis body {
   50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.4), 0 0 60px rgba(236, 72, 153, 0.18); }
 }
 
+@keyframes zodiac-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
 .tech-card-glow {
   animation: card-glow 3.5s ease-in-out infinite;
 }

@@ -21,7 +21,6 @@ export default function Home() {
             <br />
             <span className="text-pink-brand">Go Viral.</span>
           </h1>
-          <p className="text-lg text-neutral-300">Where do you want to grow?</p>
         </div>
       </Reveal>
 
@@ -36,15 +35,32 @@ export default function Home() {
             tone="dark"
           />
         </Reveal>
+
+        {/* Quantum — disabled / coming soon */}
         <Reveal delay={320}>
-          <CTAButton
-            href="/quantum"
-            title="Apply for Quantum"
-            description="Next-level growth partnership"
-            icon={<Rocket size={28} className="text-white" />}
-            className="bg-black border border-pink-brand/60 hover:border-pink-brand"
-            tone="light"
-          />
+          <div
+            aria-disabled="true"
+            className="group relative w-full rounded-2xl py-5 px-6 bg-black border border-pink-brand/30 cursor-not-allowed select-none"
+          >
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 opacity-50">
+                <Rocket size={28} className="text-white" />
+              </div>
+              <div className="flex-1 text-left">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="font-bold text-lg leading-tight text-white/60 line-through decoration-pink-brand/70 decoration-2">
+                    Apply for Quantum
+                  </span>
+                  <span className="rounded-full bg-pink-brand/15 border border-pink-brand/40 text-pink-200 px-2 py-0.5 text-[10px] tracking-[0.2em] uppercase font-semibold">
+                    Coming soon
+                  </span>
+                </div>
+                <div className="text-sm mt-0.5 text-white/40 line-through decoration-pink-brand/50">
+                  Next-level growth partnership
+                </div>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
 

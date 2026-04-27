@@ -11,16 +11,10 @@ export default function AICard() {
   const labels = ["Hook", "Script", "Post", "DM", "Email", "Track"];
 
   return (
-    <div className="tech-card-glow relative rounded-2xl bg-gradient-to-br from-pink-950/60 via-black to-black border border-pink-500/30 p-5 overflow-hidden">
-      <div className="flex items-start justify-between mb-3">
-        <div className="text-[10px] uppercase tracking-[0.2em] text-pink-400/80">Wealth infra</div>
-        <div className="text-[10px] text-pink-300 font-medium flex items-center gap-1">
-          <span
-            className="w-1.5 h-1.5 rounded-full bg-green-400"
-            style={{ animation: "node-pulse 1.6s ease-in-out infinite" }}
-          />
-          automated
-        </div>
+    <div className="tech-card-glow relative rounded-2xl bg-gradient-to-br from-pink-950/60 via-black to-black border border-pink-500/30 p-5 overflow-hidden flex flex-col">
+      {/* Header — title only, no status here anymore */}
+      <div className="text-[10px] uppercase tracking-[0.2em] text-pink-400/80 mb-3">
+        Wealth Infrastructure
       </div>
 
       <svg viewBox="0 0 200 180" className="w-full h-40" aria-hidden="true">
@@ -99,7 +93,18 @@ export default function AICard() {
         </text>
       </svg>
 
-      <div className="mt-1 text-[11px] text-pink-200/60 text-center">Automations that compound</div>
+      <div className="mt-2 text-[11px] text-pink-200/60 text-center">
+        Automations that compound
+      </div>
+
+      {/* Status moved to the bottom of the card */}
+      <div className="mt-3 pt-3 border-t border-pink-brand/15 flex items-center justify-center gap-1.5 text-[10px] font-medium text-pink-300">
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-green-400"
+          style={{ animation: "node-pulse 1.6s ease-in-out infinite" }}
+        />
+        automated
+      </div>
     </div>
   );
 }

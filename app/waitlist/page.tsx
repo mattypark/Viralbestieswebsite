@@ -166,13 +166,6 @@ export default function WaitlistPage() {
             opacity={6}
           />
 
-          <div className="relative inline-flex items-center gap-2 rounded-full border border-pink-brand/40 bg-pink-brand/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-pink-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-pink-brand animate-pulse" />
-            Beta round · Waitlist open
-          </div>
-          <div className="relative text-xs uppercase tracking-[0.3em] text-pink-300">
-            Viral Besties Club Presents
-          </div>
           <h1 className="relative font-serif font-bold text-4xl md:text-6xl leading-[1.05] tracking-tight text-white">
             30-Day{" "}
             <span className="text-pink-brand italic">Content</span>
@@ -181,10 +174,6 @@ export default function WaitlistPage() {
           </h1>
           <p className="relative text-sm md:text-base uppercase tracking-[0.2em] text-neutral-400 max-w-md">
             ✦ A live 30 day viral frequency challenge ✦
-          </p>
-          <p className="relative text-base md:text-lg text-neutral-300 max-w-xl mt-2 leading-relaxed">
-            For the woman who is done playing small, done overthinking, and ready to build
-            visibility, power, and profit around her voice.
           </p>
         </div>
       </Reveal>
@@ -212,9 +201,6 @@ export default function WaitlistPage() {
               className="transition-transform group-hover:translate-x-0.5"
             />
           </a>
-          <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-            ✦ First access · founding pricing ✦
-          </p>
         </div>
       </Reveal>
 

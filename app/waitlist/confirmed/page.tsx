@@ -1,0 +1,182 @@
+import Link from "next/link";
+import { Play, Check, AlertTriangle, ArrowRight, MapPin } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import Constellation from "@/components/Constellation";
+
+// TODO: replace with the real Stripe (or Fanbasis) checkout link for the
+// $222 Power Weekend upsell.
+const POWER_WEEKEND_CHECKOUT_URL = "#";
+
+const POWER_WEEKEND_BENEFITS = [
+  "Mindset, body & energy alignment for the 30-day transformation",
+  "Live Q&A and your first action items inside the cohort",
+  "Profile optimization + the steps to reach 10K",
+  "Stan store / monetization setup walkthrough",
+  "Content day — how to make content that grows like Jayda's",
+  "Optional in-person NYC meetup with Jayda + the cohort",
+];
+
+export default function WaitlistConfirmedPage() {
+  return (
+    <main className="relative mx-auto w-full max-w-2xl px-6 py-10 md:py-16 flex flex-col gap-10">
+      {/* Faint astrology decoration */}
+      <Constellation
+        position="top-32 -right-12 hidden md:block"
+        size={200}
+        variant="scatter"
+        opacity={9}
+      />
+      <Constellation
+        position="top-[100vh] -left-16 hidden md:block"
+        size={240}
+        variant="lines"
+        opacity={7}
+      />
+
+      {/* Urgency banner */}
+      <Reveal>
+        <div className="rounded-2xl border border-pink-brand bg-pink-brand/10 px-5 py-4 flex items-start gap-3 shadow-[0_0_30px_rgba(236,72,153,0.25)]">
+          <AlertTriangle
+            className="text-pink-brand shrink-0 mt-0.5"
+            size={20}
+          />
+          <div>
+            <p className="font-bold text-pink-100 uppercase tracking-[0.15em] text-sm">
+              Do not leave this page!
+            </p>
+            <p className="text-sm text-neutral-300 mt-0.5">
+              Your registration is not complete.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Headline + congrats */}
+      <Reveal delay={80}>
+        <div className="text-center space-y-4">
+          <div className="text-xs uppercase tracking-[0.3em] text-pink-300 font-semibold">
+            ✦ You&apos;re in the masterclass ✦
+          </div>
+          <h1 className="font-serif text-3xl md:text-5xl text-white leading-[1.1] tracking-tight">
+            Congratulations — your{" "}
+            <span className="text-pink-brand italic">seat is saved</span>.
+          </h1>
+          <p className="text-neutral-300 max-w-lg mx-auto leading-relaxed">
+            You just signed up for the live masterclass where Jayda will
+            challenge you to build a{" "}
+            <span className="text-white font-semibold">
+              10K-follower personal brand
+            </span>
+            . Saturday May 29 → May 31 · 4pm EST.
+          </p>
+        </div>
+      </Reveal>
+
+      {/* Video — Jayda explains the Power Weekend */}
+      <Reveal delay={140} className="w-full">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-gradient-to-br from-pink-950/60 via-black to-black shadow-[0_0_40px_rgba(236,72,153,0.2)] flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-pink-brand flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.6)]">
+            <Play
+              size={28}
+              className="text-black translate-x-0.5"
+              fill="currentColor"
+            />
+          </div>
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_60%)]" />
+          <div className="absolute bottom-3 left-0 right-0 text-center text-[10px] tracking-[0.25em] uppercase text-pink-200/80">
+            Jayda explains the Power Weekend
+          </div>
+        </div>
+      </Reveal>
+
+      {/* The upsell offer */}
+      <Reveal delay={200} className="w-full">
+        <section className="rounded-2xl p-[1px] bg-gradient-to-br from-pink-bright via-pink-brand to-pink-deep shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+          <div className="rounded-2xl bg-gradient-to-br from-pink-950/60 via-black to-black p-6 md:p-8 space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="text-xs uppercase tracking-[0.3em] text-pink-300 font-semibold">
+                Optional · Power Weekend Upgrade
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-pink-200 bg-pink-brand/15 border border-pink-brand/40 rounded-full px-2 py-0.5 font-semibold">
+                Offer ends May 21st
+              </div>
+            </div>
+
+            <h2 className="font-serif text-2xl md:text-3xl text-white leading-tight text-center">
+              Want to walk in{" "}
+              <em className="not-italic text-pink-brand">uber prepared</em>?
+            </h2>
+
+            <p className="text-neutral-300 text-center max-w-md mx-auto leading-relaxed">
+              Here&apos;s what you get when you sign up for the Power Weekend —
+              a 3-day live primer before the masterclass to make sure you
+              actually take the leap.
+            </p>
+
+            <ul className="flex flex-col gap-3 max-w-lg mx-auto pt-1">
+              {POWER_WEEKEND_BENEFITS.map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-pink-brand flex items-center justify-center mt-0.5 shadow-[0_0_12px_rgba(236,72,153,0.4)]">
+                    <Check size={12} className="text-black" strokeWidth={3} />
+                  </span>
+                  <span className="text-sm md:text-base text-neutral-100">
+                    {b}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center justify-center gap-2 text-xs text-pink-200/80 pt-1">
+              <MapPin size={12} />
+              In-person NYC meetups available · WhatsApp coordination
+            </div>
+
+            {/* Pricing block */}
+            <div className="pt-5 mt-2 border-t border-pink-brand/20 text-center space-y-1">
+              <div className="text-sm text-neutral-400">
+                Total value:{" "}
+                <span className="line-through decoration-pink-brand/60">
+                  $777
+                </span>
+              </div>
+              <div className="font-serif text-4xl md:text-5xl text-pink-brand font-bold drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">
+                $222
+              </div>
+              <div className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+                Today only
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 pt-3">
+              <a
+                href={POWER_WEEKEND_CHECKOUT_URL}
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl py-4 px-6 bg-gradient-to-br from-pink-bright via-pink-brand to-pink-deep text-white shadow-[0_0_40px_rgba(236,72,153,0.5)] hover:shadow-[0_0_60px_rgba(236,72,153,0.7)] transition-shadow font-semibold tracking-wide"
+              >
+                Yes, I want to be uber prepared!
+                <ArrowRight
+                  size={20}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
+              </a>
+              <Link
+                href="/waitlist"
+                className="text-center text-sm text-neutral-400 hover:text-neutral-200 transition-colors py-2 underline-offset-4 hover:underline"
+              >
+                No thanks, I&apos;ll just attend the free training.
+              </Link>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Reassurance footer */}
+      <Reveal delay={260}>
+        <p className="text-center text-xs text-neutral-500 max-w-md mx-auto leading-relaxed">
+          Your seat for the free masterclass is locked. Power Weekend is an
+          optional add-on for people who want to hit the ground running.
+        </p>
+      </Reveal>
+    </main>
+  );
+}

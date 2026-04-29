@@ -71,21 +71,25 @@ export default function WaitlistPage() {
             VIRAL BESTIES CLUB
           </div>
           <div
-            className="flex items-center justify-center gap-3 text-pink-brand/30 text-base font-serif select-none"
+            className="flex items-center justify-center gap-3 py-1"
             aria-hidden="true"
           >
-            <span>♈</span>
-            <span>♉</span>
-            <span>♊</span>
-            <span>♋</span>
-            <span>♌</span>
-            <span>♍</span>
-            <span>♎</span>
-            <span>♏</span>
-            <span>♐</span>
-            <span>♑</span>
-            <span>♒</span>
-            <span>♓</span>
+            {[10, 14, 8, 16, 12, 18, 12, 16, 8, 14, 10, 12].map((size, i) => (
+              <svg
+                key={i}
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="text-pink-brand/40 shrink-0"
+                style={{
+                  animation: `star-twinkle 2.6s ease-in-out ${i * 0.18}s infinite`,
+                  filter: "drop-shadow(0 0 4px rgba(236, 72, 153, 0.45))",
+                }}
+              >
+                <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" />
+              </svg>
+            ))}
           </div>
           <p>
             Viral Besties Club and its affiliates do not guarantee any specific

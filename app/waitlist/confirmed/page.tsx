@@ -1,19 +1,19 @@
 import Link from "next/link";
-import { Play, Check, AlertTriangle, ArrowRight, MapPin } from "lucide-react";
+import { Play, Check, AlertTriangle, ArrowRight, Star } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Constellation from "@/components/Constellation";
 
 // TODO: replace with the real Stripe (or Fanbasis) checkout link for the
-// $222 Power Weekend upsell.
-const POWER_WEEKEND_CHECKOUT_URL = "#";
+// $47 VIP signup upsell.
+const VIP_CHECKOUT_URL = "#";
 
-const POWER_WEEKEND_BENEFITS = [
-  "Mindset, body & energy alignment for the 30-day transformation",
-  "Live Q&A and your first action items inside the cohort",
-  "Profile optimization + the steps to reach 10K",
-  "Stan store / monetization setup walkthrough",
-  "Content day — how to make content that grows like Jayda's",
-  "Optional in-person NYC meetup with Jayda + the cohort",
+const VIP_BENEFITS = [
+  "Lifetime replay access to all 3 masterclass sessions",
+  "Priority Q&A — your questions answered live by Jayda",
+  "Brand Builder starter pack (templates, scripts, prompts)",
+  "Bonus content audit walkthrough on day 3",
+  "VIP-only chat channel during the masterclass",
+  "Founders pricing on the 30-day Challenge when doors open",
 ];
 
 export default function WaitlistConfirmedPage() {
@@ -72,7 +72,7 @@ export default function WaitlistConfirmedPage() {
         </div>
       </Reveal>
 
-      {/* Video — Jayda explains the Power Weekend */}
+      {/* Video — Jayda explains the VIP experience */}
       <Reveal delay={140} className="w-full">
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-gradient-to-br from-pink-950/60 via-black to-black shadow-[0_0_40px_rgba(236,72,153,0.2)] flex items-center justify-center">
           <div className="w-16 h-16 rounded-full bg-pink-brand flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.6)]">
@@ -84,37 +84,38 @@ export default function WaitlistConfirmedPage() {
           </div>
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_60%)]" />
           <div className="absolute bottom-3 left-0 right-0 text-center text-[10px] tracking-[0.25em] uppercase text-pink-200/80">
-            Jayda explains the Power Weekend
+            Jayda explains the VIP experience
           </div>
         </div>
       </Reveal>
 
-      {/* The upsell offer */}
+      {/* The VIP upsell */}
       <Reveal delay={200} className="w-full">
         <section className="rounded-2xl p-[1px] bg-gradient-to-br from-pink-bright via-pink-brand to-pink-deep shadow-[0_0_40px_rgba(236,72,153,0.3)]">
           <div className="rounded-2xl bg-gradient-to-br from-pink-950/60 via-black to-black p-6 md:p-8 space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="text-xs uppercase tracking-[0.3em] text-pink-300 font-semibold">
-                Optional · Power Weekend Upgrade
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-pink-300 font-semibold">
+                <Star size={12} className="text-pink-brand" fill="currentColor" />
+                Optional · VIP Upgrade
               </div>
               <div className="text-[10px] uppercase tracking-[0.25em] text-pink-200 bg-pink-brand/15 border border-pink-brand/40 rounded-full px-2 py-0.5 font-semibold">
-                Offer ends May 21st
+                Closes when doors open
               </div>
             </div>
 
             <h2 className="font-serif text-2xl md:text-3xl text-white leading-tight text-center">
-              Want to walk in{" "}
-              <em className="not-italic text-pink-brand">uber prepared</em>?
+              Want the{" "}
+              <em className="not-italic text-pink-brand">VIP experience</em>?
             </h2>
 
             <p className="text-neutral-300 text-center max-w-md mx-auto leading-relaxed">
-              Here&apos;s what you get when you sign up for the Power Weekend —
-              a 3-day live primer before the masterclass to make sure you
-              actually take the leap.
+              For the women who want to actually <span className="text-white font-semibold">implement</span>, not
+              just attend. VIP unlocks lifetime replays, priority Q&amp;A, and
+              the Brand Builder pack so you walk in fully equipped.
             </p>
 
             <ul className="flex flex-col gap-3 max-w-lg mx-auto pt-1">
-              {POWER_WEEKEND_BENEFITS.map((b) => (
+              {VIP_BENEFITS.map((b) => (
                 <li key={b} className="flex items-start gap-3">
                   <span className="shrink-0 w-5 h-5 rounded-full bg-pink-brand flex items-center justify-center mt-0.5 shadow-[0_0_12px_rgba(236,72,153,0.4)]">
                     <Check size={12} className="text-black" strokeWidth={3} />
@@ -126,34 +127,29 @@ export default function WaitlistConfirmedPage() {
               ))}
             </ul>
 
-            <div className="flex items-center justify-center gap-2 text-xs text-pink-200/80 pt-1">
-              <MapPin size={12} />
-              In-person NYC meetups available · WhatsApp coordination
-            </div>
-
             {/* Pricing block */}
             <div className="pt-5 mt-2 border-t border-pink-brand/20 text-center space-y-1">
               <div className="text-sm text-neutral-400">
                 Total value:{" "}
                 <span className="line-through decoration-pink-brand/60">
-                  $777
+                  $111
                 </span>
               </div>
               <div className="font-serif text-4xl md:text-5xl text-pink-brand font-bold drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">
-                $222
+                $47
               </div>
               <div className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                Today only
+                One-time · Today only
               </div>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-col gap-3 pt-3">
               <a
-                href={POWER_WEEKEND_CHECKOUT_URL}
+                href={VIP_CHECKOUT_URL}
                 className="group inline-flex items-center justify-center gap-3 rounded-2xl py-4 px-6 bg-gradient-to-br from-pink-bright via-pink-brand to-pink-deep text-white shadow-[0_0_40px_rgba(236,72,153,0.5)] hover:shadow-[0_0_60px_rgba(236,72,153,0.7)] transition-shadow font-semibold tracking-wide"
               >
-                Yes, I want to be uber prepared!
+                Yes, upgrade me to VIP for $47
                 <ArrowRight
                   size={20}
                   className="transition-transform group-hover:translate-x-0.5"
@@ -173,8 +169,9 @@ export default function WaitlistConfirmedPage() {
       {/* Reassurance footer */}
       <Reveal delay={260}>
         <p className="text-center text-xs text-neutral-500 max-w-md mx-auto leading-relaxed">
-          Your seat for the free masterclass is locked. Power Weekend is an
-          optional add-on for people who want to hit the ground running.
+          Your seat for the free masterclass is locked in. VIP is an optional
+          upgrade for people who want the replays, the Brand Builder pack, and
+          priority access during the live sessions.
         </p>
       </Reveal>
     </main>

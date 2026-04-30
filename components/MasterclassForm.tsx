@@ -4,6 +4,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
+// Form submits to /api/waitlist (server-side):
+//   • appends row to Google Sheet (env: GOOGLE_SHEET_WEBHOOK_URL)
+//   • fires Day-1 confirmation email via Resend (env: RESEND_API_KEY,
+//     RESEND_FROM_EMAIL)
+//   • placeholder for CRM (Kit) subscription that drives days 2–14
+//     of the email warm-up sequence
+const WHATSAPP_GROUP_URL =
+  "https://chat.whatsapp.com/DVNRRvhOMRM9aHBVtAjoBd?mode=gi_t";
+
 type Form = {
   name: string;
   email: string;
@@ -11,6 +20,7 @@ type Form = {
   instagram: string;
   goal: string;
   content: string;
+  whatsappOptIn: boolean;
 };
 
 const initial: Form = {
@@ -20,6 +30,7 @@ const initial: Form = {
   instagram: "",
   goal: "",
   content: "",
+  whatsappOptIn: true,
 };
 
 export default function MasterclassForm() {
@@ -34,16 +45,43 @@ export default function MasterclassForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    // TODO: wire submission to Kit (or Typeform when ID is available).
-    // For now we log + redirect to the post-signup upsell page.
+
+    // Persist locally so the /waitlist/confirmed page can read it.
     if (typeof window !== "undefined") {
-      console.log("masterclass signup:", form);
       try {
-        sessionStorage.setItem("vbc:masterclass-signup", JSON.stringify(form));
+        sessionStorage.setItem(
+          "vbc:masterclass-signup",
+          JSON.stringify(form),
+        );
       } catch {
         /* ignore */
       }
     }
+
+    // Submit to our server-side API route (handles Sheet + email).
+    try {
+      await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          instagram: form.instagram,
+          goal: form.goal,
+          content: form.content,
+          whatsapp_opt_in: form.whatsappOptIn,
+        }),
+      });
+    } catch (err) {
+      console.error("waitlist submit failed", err);
+    }
+
+    // If they opted into WhatsApp, open the invite in a new tab.
+    if (form.whatsappOptIn && WHATSAPP_GROUP_URL) {
+      window.open(WHATSAPP_GROUP_URL, "_blank", "noopener,noreferrer");
+    }
+
     router.push("/waitlist/confirmed");
   }
 
@@ -57,7 +95,7 @@ export default function MasterclassForm() {
           Save your free seat
         </div>
         <p className="font-serif text-xl md:text-2xl text-white">
-          Saturday May 29 → May 31 · 4pm EST
+          May 15 – 17 · 10am EST
         </p>
       </div>
 
@@ -118,6 +156,25 @@ export default function MasterclassForm() {
         onChange={(v) => update("content", v)}
         placeholder="e.g. wellness, faith-based content, finance for women, fashion + lifestyle..."
       />
+
+      {/* WhatsApp opt-in */}
+      <label className="flex items-start gap-3 rounded-xl border border-pink-brand/40 bg-pink-brand/[0.07] p-4 cursor-pointer hover:bg-pink-brand/10 transition-colors">
+        <input
+          type="checkbox"
+          checked={form.whatsappOptIn}
+          onChange={(e) => update("whatsappOptIn", e.target.checked)}
+          className="mt-0.5 w-5 h-5 accent-pink-brand cursor-pointer shrink-0"
+        />
+        <span className="text-sm text-neutral-200 leading-relaxed">
+          <span className="font-semibold text-pink-100">
+            Wanna join the WhatsApp group we have going for The Challenge??? 👀
+          </span>{" "}
+          <span className="text-neutral-300">
+            I&apos;m dropping a resource that only my consulting clients get in
+            there too.
+          </span>
+        </span>
+      </label>
 
       <button
         type="submit"

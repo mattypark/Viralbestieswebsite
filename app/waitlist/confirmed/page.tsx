@@ -11,9 +11,7 @@ const VIP_BENEFITS = [
   "Lifetime replay access to all 3 masterclass sessions",
   "Priority Q&A — your questions answered live by Jayda",
   "Brand Builder starter pack (templates, scripts, prompts)",
-  "Bonus content audit walkthrough on day 3",
-  "VIP-only chat channel during the masterclass",
-  "Founders pricing on the 30-day Challenge when doors open",
+  "Entry into the drawing to be chosen by Jayda for a live brand build-out on the call",
 ];
 
 export default function WaitlistConfirmedPage() {
@@ -67,7 +65,7 @@ export default function WaitlistConfirmedPage() {
             <span className="text-white font-semibold">
               10K-follower personal brand
             </span>
-            . Saturday May 29 → May 31 · 4pm EST.
+            . May 15 – 17 · 10am EST.
           </p>
         </div>
       </Reveal>
@@ -109,7 +107,7 @@ export default function WaitlistConfirmedPage() {
             </h2>
 
             <p className="text-neutral-300 text-center max-w-md mx-auto leading-relaxed">
-              For the women who want to actually <span className="text-white font-semibold">implement</span>, not
+              For the person who wants to actually <span className="text-white font-semibold">implement</span>, not
               just attend. VIP unlocks lifetime replays, priority Q&amp;A, and
               the Brand Builder pack so you walk in fully equipped.
             </p>

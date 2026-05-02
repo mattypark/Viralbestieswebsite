@@ -73,8 +73,8 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           from: fromEmail,
           to: email,
-          subject: "Your seat is saved — see you May 15",
-          html: confirmationHtml(data.name),
+          subject: "You're in.",
+          html: confirmationHtml(),
         }),
       }).catch((err) => {
         console.error("email send failed", err);
@@ -118,11 +118,9 @@ export async function POST(req: Request) {
 }
 
 // ---------------------------------------------------------------
-// Confirmation email — Day 1 of the warm-up sequence.
-// TODO: tune copy in Jayda's voice when ready.
+// Waitlist confirmation email — sent immediately on form submit.
 // ---------------------------------------------------------------
-function confirmationHtml(name?: string): string {
-  const firstName = (name ?? "").trim().split(" ")[0] || "beautiful";
+function confirmationHtml(): string {
   return `<!doctype html>
 <html>
   <body style="margin:0;padding:0;background:#0a0a0a;font-family:Helvetica,Arial,sans-serif;color:#ffffff;">
@@ -141,16 +139,31 @@ function confirmationHtml(name?: string): string {
               </div>
             </td></tr>
             <tr><td style="padding:8px 32px 24px;text-align:center;">
-              <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:1.2;color:#ffffff;font-weight:bold;">
-                Your seat is <em style="color:#ec4899;">saved</em>.
+              <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:1.2;color:#ffffff;font-weight:bold;">
+                You're <em style="color:#ec4899;">in</em>.
               </h1>
             </td></tr>
             <tr><td style="padding:0 32px 24px;text-align:left;">
               <p style="margin:0 0 16px;color:#d4d4d4;font-size:16px;line-height:1.6;">
-                Hey ${escapeHtml(firstName)},
+                Your seat is saved for the live training.
               </p>
               <p style="margin:0 0 16px;color:#d4d4d4;font-size:16px;line-height:1.6;">
-                You just saved your spot for the live masterclass where I'll show you exactly how to get your first <strong style="color:#ffffff;">10K followers in 30 days</strong>.
+                This is where we're going to break down what actually works <strong style="color:#ffffff;">right now</strong> when it comes to content, growth, and building something real online.
+              </p>
+              <p style="margin:0 0 8px;color:#d4d4d4;font-size:16px;line-height:1.6;">
+                No guessing. No random strategies.
+              </p>
+              <p style="margin:0 0 16px;color:#ffffff;font-size:16px;line-height:1.6;font-weight:600;">
+                Just clarity.
+              </p>
+              <p style="margin:0 0 8px;color:#d4d4d4;font-size:16px;line-height:1.6;">
+                All I need from you is simple:
+              </p>
+              <p style="margin:0 0 16px;color:#ffffff;font-size:18px;line-height:1.6;font-weight:700;">
+                Show up.
+              </p>
+              <p style="margin:0 0 16px;color:#d4d4d4;font-size:16px;line-height:1.6;">
+                Save the details below, block the time, and come ready to pay attention.
               </p>
               <div style="margin:24px 0;padding:20px;background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.3);border-radius:12px;">
                 <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#f9a8d4;font-weight:600;margin-bottom:6px;">
@@ -160,15 +173,9 @@ function confirmationHtml(name?: string): string {
                   May 15 – 17 · 10am EST
                 </div>
               </div>
-              <p style="margin:0 0 16px;color:#d4d4d4;font-size:16px;line-height:1.6;">
-                Over the next two weeks I'm going to be in your inbox almost every day, getting you primed and ready to actually take action when we go live. Watch for them.
-              </p>
-              <p style="margin:0 0 16px;color:#d4d4d4;font-size:16px;line-height:1.6;">
-                In the meantime — follow me on Instagram and turn on notifications so you don't miss anything.
-              </p>
               <p style="margin:24px 0 0;color:#d4d4d4;font-size:16px;line-height:1.6;">
-                See you soon,<br/>
-                <span style="color:#ec4899;font-family:Georgia,'Times New Roman',serif;font-style:italic;">Jayda</span>
+                More soon,<br/>
+                <span style="color:#ec4899;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:20px;">Jayda</span>
               </p>
             </td></tr>
             <tr><td style="padding:24px 32px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
@@ -184,15 +191,3 @@ function confirmationHtml(name?: string): string {
 </html>`;
 }
 
-function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) => {
-    const map: Record<string, string> = {
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#39;",
-    };
-    return map[c] ?? c;
-  });
-}

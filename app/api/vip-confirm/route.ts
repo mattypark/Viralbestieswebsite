@@ -162,7 +162,7 @@ function vipConfirmationHtml(): string {
                   Mark your calendar
                 </div>
                 <div style="font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#ffffff;line-height:1.3;">
-                  May 15 – 17 · 10am EST
+                  May 15 · 10am EST
                 </div>
               </div>
 

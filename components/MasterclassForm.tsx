@@ -85,7 +85,7 @@ export default function MasterclassForm() {
           Save your free seat
         </div>
         <p className="font-serif text-xl md:text-2xl text-white">
-          May 15 – 17 · 10am EST
+          May 15 · 10am EST
         </p>
       </div>
 

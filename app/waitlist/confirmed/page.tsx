@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, AlertTriangle, ArrowRight, Star } from "lucide-react";
+import { Check, AlertTriangle, ArrowRight, Star, MessageCircle } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Constellation from "@/components/Constellation";
 
@@ -98,8 +98,8 @@ export default function WaitlistConfirmedPage() {
           rel="noopener noreferrer"
           className="group flex items-start gap-3 rounded-xl border border-pink-brand/40 bg-pink-brand/[0.07] p-4 hover:bg-pink-brand/10 transition-colors"
         >
-          <span className="shrink-0 w-5 h-5 rounded-md bg-pink-brand flex items-center justify-center mt-0.5 shadow-[0_0_12px_rgba(236,72,153,0.4)]">
-            <Check size={12} className="text-black" strokeWidth={3} />
+          <span className="shrink-0 w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center mt-0.5 shadow-[0_0_12px_rgba(37,211,102,0.4)]">
+            <MessageCircle size={18} className="text-white" strokeWidth={2.5} fill="white" />
           </span>
           <span className="text-sm text-neutral-200 leading-relaxed">
             <span className="font-semibold text-pink-100">

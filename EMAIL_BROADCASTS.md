@@ -8,7 +8,7 @@ Drop-in HTML for Resend Broadcasts. Same look as waitlist/VIP confirmation email
 
 - `RESEND_API_KEY` — from resend.com/api-keys
 - `RESEND_FROM_EMAIL` — `Jayda <noreply@viralbesties.club>`
-- `RESEND_AUDIENCE_ID` — `fda33119-5b29-4bc4-acb6-a8b08dbddedf`
+- `RESEND_AUDIENCE_ID` — from Resend → Audiences → your audience (UUID)
 
 Every waitlist + VIP signup auto-adds to that audience. Pickleball stays separate (different audience).
 

@@ -34,7 +34,7 @@ export default function WaitlistPage() {
       <Reveal delay={80} className="w-full">
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-black shadow-[0_0_40px_rgba(236,72,153,0.2)]">
           <video
-            src="/video-1.mp4"
+            src="https://im4pjeepekyrk1xl.public.blob.vercel-storage.com/video-1.mp4"
             poster="/video-1-poster.jpg"
             autoPlay
             muted

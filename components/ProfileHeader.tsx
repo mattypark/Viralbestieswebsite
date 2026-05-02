@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
 
 function InstagramIcon({ size = 24 }: { size?: number }) {
   return (
@@ -71,17 +70,32 @@ export default function ProfileHeader() {
         />
       </div>
       <div className="flex items-center gap-5 text-neutral-400">
-        <Link href="#" aria-label="Email" className="hover:text-pink-400 transition-colors">
-          <Mail size={24} />
-        </Link>
-        <Link href="#" aria-label="Instagram" className="hover:text-pink-400 transition-colors">
+        <Link
+          href="https://www.instagram.com/viralbestiesclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="hover:text-pink-400 transition-colors"
+        >
           <InstagramIcon size={24} />
         </Link>
-        <Link href="#" aria-label="YouTube" className="hover:text-pink-400 transition-colors">
-          <YoutubeIcon size={24} />
-        </Link>
-        <Link href="#" aria-label="TikTok" className="hover:text-pink-400 transition-colors">
+        <Link
+          href="https://www.tiktok.com/@viralbestiesclub"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="hover:text-pink-400 transition-colors"
+        >
           <TikTokIcon size={22} />
+        </Link>
+        <Link
+          href="https://www.youtube.com/@viralbestiesclub"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          className="hover:text-pink-400 transition-colors"
+        >
+          <YoutubeIcon size={24} />
         </Link>
       </div>
     </div>

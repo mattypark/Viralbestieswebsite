@@ -78,9 +78,13 @@ export default function WaitlistConfirmedPage() {
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-black shadow-[0_0_40px_rgba(236,72,153,0.2)]">
           <video
             src="/video-2.mp4"
-            controls
+            poster="/video-2-poster.jpg"
+            autoPlay
+            muted
+            loop
             playsInline
-            preload="metadata"
+            controls
+            preload="auto"
             className="w-full h-full object-cover"
           />
         </div>

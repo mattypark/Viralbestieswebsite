@@ -35,9 +35,13 @@ export default function WaitlistPage() {
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-black shadow-[0_0_40px_rgba(236,72,153,0.2)]">
           <video
             src="/video-1.mp4"
-            controls
+            poster="/video-1-poster.jpg"
+            autoPlay
+            muted
+            loop
             playsInline
-            preload="metadata"
+            controls
+            preload="auto"
             className="w-full h-full object-cover"
           />
         </div>

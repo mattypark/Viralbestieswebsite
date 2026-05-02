@@ -10,8 +10,6 @@ import { ArrowRight } from "lucide-react";
 //     RESEND_FROM_EMAIL)
 //   • placeholder for CRM (Kit) subscription that drives days 2–14
 //     of the email warm-up sequence
-const WHATSAPP_GROUP_URL =
-  "https://chat.whatsapp.com/DVNRRvhOMRM9aHBVtAjoBd?mode=gi_t";
 
 type Form = {
   name: string;
@@ -20,7 +18,6 @@ type Form = {
   instagram: string;
   goal: string;
   content: string;
-  whatsappOptIn: boolean;
 };
 
 const initial: Form = {
@@ -30,7 +27,6 @@ const initial: Form = {
   instagram: "",
   goal: "",
   content: "",
-  whatsappOptIn: true,
 };
 
 export default function MasterclassForm() {
@@ -70,16 +66,10 @@ export default function MasterclassForm() {
           instagram: form.instagram,
           goal: form.goal,
           content: form.content,
-          whatsapp_opt_in: form.whatsappOptIn,
         }),
       });
     } catch (err) {
       console.error("waitlist submit failed", err);
-    }
-
-    // If they opted into WhatsApp, open the invite in a new tab.
-    if (form.whatsappOptIn && WHATSAPP_GROUP_URL) {
-      window.open(WHATSAPP_GROUP_URL, "_blank", "noopener,noreferrer");
     }
 
     router.push("/waitlist/confirmed");
@@ -156,25 +146,6 @@ export default function MasterclassForm() {
         onChange={(v) => update("content", v)}
         placeholder="e.g. wellness, faith-based content, finance for women, fashion + lifestyle..."
       />
-
-      {/* WhatsApp opt-in */}
-      <label className="flex items-start gap-3 rounded-xl border border-pink-brand/40 bg-pink-brand/[0.07] p-4 cursor-pointer hover:bg-pink-brand/10 transition-colors">
-        <input
-          type="checkbox"
-          checked={form.whatsappOptIn}
-          onChange={(e) => update("whatsappOptIn", e.target.checked)}
-          className="mt-0.5 w-5 h-5 accent-pink-brand cursor-pointer shrink-0"
-        />
-        <span className="text-sm text-neutral-200 leading-relaxed">
-          <span className="font-semibold text-pink-100">
-            Wanna join the WhatsApp group we have going for The Challenge??? 👀
-          </span>{" "}
-          <span className="text-neutral-300">
-            I&apos;m dropping a resource that only my consulting clients get in
-            there too.
-          </span>
-        </span>
-      </label>
 
       <button
         type="submit"

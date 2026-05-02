@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { Play, Check, AlertTriangle, ArrowRight, Star } from "lucide-react";
+import { Check, AlertTriangle, ArrowRight, Star } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Constellation from "@/components/Constellation";
 
-// TODO: replace with the real Stripe (or Fanbasis) checkout link for the
-// $47 VIP signup upsell.
-const VIP_CHECKOUT_URL = "#";
+// Fanbasis hosted checkout for the $47 VIP signup upsell.
+const VIP_CHECKOUT_URL =
+  "https://www.fanbasis.com/agency-checkout/viral-besties-club/2908K";
+
+const WHATSAPP_GROUP_URL =
+  "https://chat.whatsapp.com/DVNRRvhOMRM9aHBVtAjoBd?mode=gi_t";
 
 const VIP_BENEFITS = [
   "Lifetime replay access to all 3 masterclass sessions",
@@ -72,19 +75,38 @@ export default function WaitlistConfirmedPage() {
 
       {/* Video — Jayda explains the VIP experience */}
       <Reveal delay={140} className="w-full">
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-gradient-to-br from-pink-950/60 via-black to-black shadow-[0_0_40px_rgba(236,72,153,0.2)] flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-pink-brand flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.6)]">
-            <Play
-              size={28}
-              className="text-black translate-x-0.5"
-              fill="currentColor"
-            />
-          </div>
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_60%)]" />
-          <div className="absolute bottom-3 left-0 right-0 text-center text-[10px] tracking-[0.25em] uppercase text-pink-200/80">
-            Jayda explains the VIP experience
-          </div>
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-black shadow-[0_0_40px_rgba(236,72,153,0.2)]">
+          <video
+            src="/video-2.mp4"
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
         </div>
+      </Reveal>
+
+      {/* WhatsApp group invite */}
+      <Reveal delay={170} className="w-full">
+        <a
+          href={WHATSAPP_GROUP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-start gap-3 rounded-xl border border-pink-brand/40 bg-pink-brand/[0.07] p-4 hover:bg-pink-brand/10 transition-colors"
+        >
+          <span className="shrink-0 w-5 h-5 rounded-md bg-pink-brand flex items-center justify-center mt-0.5 shadow-[0_0_12px_rgba(236,72,153,0.4)]">
+            <Check size={12} className="text-black" strokeWidth={3} />
+          </span>
+          <span className="text-sm text-neutral-200 leading-relaxed">
+            <span className="font-semibold text-pink-100">
+              Wanna join the WhatsApp group we have going for The Challenge??? 👀
+            </span>{" "}
+            <span className="text-neutral-300">
+              I&apos;m dropping a resource that only my consulting clients get
+              in there too.
+            </span>
+          </span>
+        </a>
       </Reveal>
 
       {/* The VIP upsell */}

@@ -61,11 +61,10 @@ export default function ProfileHeader() {
   return (
     <div className="flex flex-col items-center gap-6">
       <div className="w-32 h-32 rounded-full overflow-hidden bg-neutral-800 ring-2 ring-pink-500/40 shadow-[0_0_30px_rgba(236,72,153,0.3)]">
-        {/* Placeholder: replace /public/profile.svg with a real profile.jpg */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/profile.svg"
-          alt="Profile"
+          src="/jayda.png"
+          alt="Jayda"
           width={128}
           height={128}
           className="w-full h-full object-cover"

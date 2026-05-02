@@ -1,4 +1,3 @@
-import { Play } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import BackButton from "@/components/BackButton";
 import JJMark from "@/components/JJMark";
@@ -33,15 +32,14 @@ export default function WaitlistPage() {
 
       {/* Video — does the carrying */}
       <Reveal delay={80} className="w-full">
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-gradient-to-br from-pink-950/60 via-black to-black shadow-[0_0_40px_rgba(236,72,153,0.2)] flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-pink-brand flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.6)]">
-            <Play
-              size={28}
-              className="text-black translate-x-0.5"
-              fill="currentColor"
-            />
-          </div>
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_60%)]" />
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-pink-brand/30 bg-black shadow-[0_0_40px_rgba(236,72,153,0.2)]">
+          <video
+            src="/video-1.mp4"
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
         </div>
       </Reveal>
 

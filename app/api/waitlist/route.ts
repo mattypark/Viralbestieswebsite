@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { addToResendAudience } from "@/lib/resend-audience";
 
 // ---------------------------------------------------------------
 // Required env vars (set in Vercel → Settings → Environment Variables):
@@ -7,10 +8,6 @@ import { NextResponse } from "next/server";
 //   RESEND_FROM_EMAIL         e.g. "Jayda <jayda@viralbesties.com>"
 //                             (domain must be verified in Resend)
 //   GOOGLE_SHEET_WEBHOOK_URL  Apps Script web app deployment URL
-//
-// Optional / future CRM:
-//   KIT_API_KEY
-//   KIT_FORM_ID
 // ---------------------------------------------------------------
 
 type Payload = {
@@ -82,35 +79,9 @@ export async function POST(req: Request) {
     );
   }
 
-  // 3) (placeholder) CRM subscription that drives the email warm-up
-  //    sequence (Day 2 → Day 14 leading to the live event).
-  //    Day 1 is the Resend send above; days 2-14 should fire from
-  //    Kit / HubSpot / GHL automation triggered when this user is
-  //    added to the audience.
-  //
-  //    Example with Kit (formerly ConvertKit):
-  //      const kitKey = process.env.KIT_API_KEY;
-  //      const kitFormId = process.env.KIT_FORM_ID;
-  //      if (kitKey && kitFormId) {
-  //        tasks.push(
-  //          fetch(`https://api.convertkit.com/v3/forms/${kitFormId}/subscribe`, {
-  //            method: "POST",
-  //            headers: { "Content-Type": "application/json" },
-  //            body: JSON.stringify({
-  //              api_key: kitKey,
-  //              email,
-  //              first_name: data.name,
-  //              fields: {
-  //                phone: data.phone,
-  //                instagram: data.instagram,
-  //                goal: data.goal,
-  //                content: data.content,
-  //                whatsapp_opt_in: data.whatsapp_opt_in ? "yes" : "no",
-  //              },
-  //            }),
-  //          }).catch((err) => console.error("kit subscribe failed", err)),
-  //        );
-  //      }
+  // 3) Add to Resend audience so they receive scheduled Broadcasts
+  //    (countdown emails leading up to the live training).
+  tasks.push(addToResendAudience(email, data.name));
 
   await Promise.allSettled(tasks);
 

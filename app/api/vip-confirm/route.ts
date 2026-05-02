@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { addToResendAudience } from "@/lib/resend-audience";
 
 // ---------------------------------------------------------------
 // VIP confirmation email — sent after successful Fanbasis checkout.
@@ -29,9 +30,14 @@ export async function POST(req: Request) {
   }
 
   const email = (data.email ?? data.customer_email ?? "").trim();
+  const name = data.name ?? data.customer_name;
   if (!email) {
     return NextResponse.json({ error: "Email required" }, { status: 400 });
   }
+
+  // Add to Resend audience so VIPs receive the countdown broadcasts.
+  // (fire-and-forget; don't block the email send on this)
+  void addToResendAudience(email, name);
 
   const resendKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.RESEND_FROM_EMAIL;

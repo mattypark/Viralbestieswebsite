@@ -1,7 +1,7 @@
+import Script from "next/script";
 import Reveal from "@/components/Reveal";
 import BackButton from "@/components/BackButton";
 import JJMark from "@/components/JJMark";
-import MasterclassForm from "@/components/MasterclassForm";
 import Constellation from "@/components/Constellation";
 
 export default function WaitlistPage() {
@@ -61,9 +61,28 @@ export default function WaitlistPage() {
         </div>
       </Reveal>
 
-      {/* Form */}
+      {/* Form — LeadConnector embed */}
       <Reveal delay={200} className="w-full">
-        <MasterclassForm />
+        <div className="rounded-2xl overflow-hidden border border-pink-brand/40 bg-black shadow-[0_0_40px_rgba(236,72,153,0.15)]">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/yAbsjmkascgAB8pnVD5a"
+            style={{ width: "100%", height: "882px", border: "none", borderRadius: "8px" }}
+            id="inline-yAbsjmkascgAB8pnVD5a"
+            data-layout='{"id":"INLINE"}'
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Webinar Type Shit"
+            data-height="882"
+            data-layout-iframe-id="inline-yAbsjmkascgAB8pnVD5a"
+            data-form-id="yAbsjmkascgAB8pnVD5a"
+            title="Webinar Type Shit"
+          />
+        </div>
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
       </Reveal>
 
       {/* Footer */}

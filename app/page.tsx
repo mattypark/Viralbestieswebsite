@@ -28,7 +28,7 @@ export default function Home() {
         <Reveal delay={240}>
           <CTAButton
             href="/waitlist"
-            title="Apply for Waitlist"
+            title="Register for the training"
             description="Join the Viral Besties Club"
             icon={<Sparkles size={28} className="text-black" />}
             className="bg-pink-brand hover:bg-pink-bright"
@@ -52,7 +52,7 @@ export default function Home() {
                     Apply for Quantum
                   </span>
                   <span className="rounded-full bg-pink-brand/15 border border-pink-brand/40 text-pink-200 px-2 py-0.5 text-[10px] tracking-[0.2em] uppercase font-semibold">
-                    Coming soon
+                    Sold Out
                   </span>
                 </div>
                 <div className="text-sm mt-0.5 text-white/40 line-through decoration-pink-brand/50">

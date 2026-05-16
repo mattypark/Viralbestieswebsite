@@ -3,6 +3,7 @@ import { Geist, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import LegalFooter from "@/components/LegalFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body>
         <SmoothScroll />
         {children}
+        <LegalFooter />
         <Analytics />
       </body>
     </html>

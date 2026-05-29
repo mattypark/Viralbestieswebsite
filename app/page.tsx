@@ -2,6 +2,7 @@ import { Sparkles, Rocket } from "lucide-react";
 import ProfileHeader from "@/components/ProfileHeader";
 import CTAButton from "@/components/CTAButton";
 import Reveal from "@/components/Reveal";
+import EncoreBanner from "@/components/EncoreBanner";
 import AnalyticsCard from "@/components/tech/AnalyticsCard";
 import PhoneCard from "@/components/tech/PhoneCard";
 import AICard from "@/components/tech/AICard";
@@ -9,6 +10,10 @@ import AICard from "@/components/tech/AICard";
 export default function Home() {
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-16 md:py-24 flex flex-col items-center gap-10">
+      <Reveal>
+        <EncoreBanner />
+      </Reveal>
+
       <Reveal>
         <ProfileHeader />
       </Reveal>

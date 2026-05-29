@@ -2,6 +2,7 @@ import Script from "next/script";
 import Reveal from "@/components/Reveal";
 import BackButton from "@/components/BackButton";
 import JJMark from "@/components/JJMark";
+import EncoreBanner from "@/components/EncoreBanner";
 import Constellation from "@/components/Constellation";
 
 export default function WaitlistPage() {
@@ -22,6 +23,10 @@ export default function WaitlistPage() {
       />
 
       <BackButton />
+
+      <Reveal>
+        <EncoreBanner />
+      </Reveal>
 
       {/* JJ Monogram */}
       <Reveal>

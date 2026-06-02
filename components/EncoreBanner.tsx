@@ -7,10 +7,10 @@ export default function EncoreBanner() {
         <Sparkles size={18} className="text-pink-brand shrink-0 animate-pulse" />
         <div className="space-y-0.5">
           <div className="text-[10px] uppercase tracking-[0.3em] text-pink-300 font-semibold">
-            Encore!!
+            Finale!!
           </div>
           <div className="font-serif text-base md:text-lg text-white leading-tight">
-            Sunday, May 31 · <span className="text-pink-brand">10am</span>
+            Friday, June 5 · <span className="text-pink-brand">6pm</span>
           </div>
         </div>
         <Sparkles size={18} className="text-pink-brand shrink-0 animate-pulse" />

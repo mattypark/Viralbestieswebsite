@@ -68,7 +68,7 @@ export default function WaitlistConfirmedPage() {
             <span className="text-white font-semibold">
               10K-follower personal brand
             </span>
-            . May 29 · 10am EST.
+            . Friday, June 5 · 6pm EST.
           </p>
         </div>
       </Reveal>
